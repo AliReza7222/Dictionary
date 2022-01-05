@@ -1,7 +1,7 @@
 # b_kh
 # run_vocabs
 from datetime import datetime
-from main import Config
+from Config import Config
 
 vocabs = Config()
 
@@ -10,9 +10,9 @@ def time_enter_exit(key):
     with open("days that i work enghlish vocabs.txt", "a") as file:
         time = datetime.now()
         if key == "enter":
-            line = f"preson enter at time : {time.strftime('%A')} {time} \n"
+            line = f"person enter at time : {time.strftime('%A')} {time} \n"
         elif key == 'exit':
-            line = f"preson exit at time : {time.strftime('%A')} {time} \n\n"
+            line = f"person exit at time : {time.strftime('%A')} {time} \n\n"
         file.write(line)
 
 
@@ -27,6 +27,7 @@ if enter == "old":
         try:
             if int(input("show vocab with key Enter and exit of program with key 0 : ")) == 0:
                 print("exit of program\ngood luck.")
+                time_enter_exit("exit")
                 break
         except:
             print(f"\n\t{num}_{v}\n")
