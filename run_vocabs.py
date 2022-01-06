@@ -2,6 +2,7 @@
 # run_vocabs
 from datetime import datetime
 from Config import Config
+from file_translator import translator
 
 vocabs = Config()
 
@@ -16,7 +17,7 @@ def time_enter_exit(key):
         file.write(line)
 
 
-enter = input("vocab's old or forget: (forget/old) ? ")
+enter = input("\nvocab's old or forget: (forget/old) ? ")
 if enter == "old":
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
@@ -31,6 +32,9 @@ if enter == "old":
                 break
         except:
             print(f"\n\t{num}_{v}\n")
+            if input("do you need to translate this vocab? y\\n : ") == "y":
+                print(f"\n\t{translator(v)}\n")
+
 elif enter == "forget":
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
@@ -45,6 +49,8 @@ elif enter == "forget":
                 break
         except:
             print(f"\n\t{num}_{k} =\t{v}\n")
+            if input("do you need to translate this vocab? y\\n : ") == "y":
+                print(f"{translator(k)} = {[translator(vocab)for vocab in v]}")
 
 else:
     print("Error enter....")
