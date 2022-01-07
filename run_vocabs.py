@@ -8,7 +8,7 @@ vocabs = Config()
 
 
 def time_enter_exit(key):
-    with open("days that i work enghlish vocabs.txt", "a") as file:
+    with open("days that i work english vocabs.txt", "a") as file:
         time = datetime.now()
         if key == "enter":
             line = f"person enter at time : {time.strftime('%A')} {time} \n"
@@ -18,6 +18,7 @@ def time_enter_exit(key):
 
 
 enter = input("\nvocab's old or forget: (forget/old) ? ")
+line = int(input("which line : "))
 if enter == "old":
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
@@ -25,15 +26,16 @@ if enter == "old":
     num = 0
     for v in list_vocab:
         num += 1
-        try:
-            if int(input("show vocab with key Enter and exit of program with key 0 : ")) == 0:
-                print("exit of program\ngood luck.")
-                time_enter_exit("exit")
-                break
-        except:
-            print(f"\n\t{num}_{v}\n")
-            if input("do you need to translate this vocab? y\\n : ") == "y":
-                print(f"\n\t{translator(v)}\n")
+        if num >= line:
+            try:
+                if int(input("show vocab with key Enter and exit of program with key 0 : ")) == 0:
+                    print("exit of program\ngood luck.")
+                    time_enter_exit("exit")
+                    break
+            except:
+                print(f"\n\t{num}_{v}\n")
+                if input("do you need to translate this vocab? y\\n : ") == "y":
+                    print(f"\n\t{translator(v)}\n")
 
 elif enter == "forget":
     time_enter_exit("enter")
@@ -42,15 +44,16 @@ elif enter == "forget":
     num = 0
     for k, v in zip(list_vocab.keys(), list_vocab.values()):
         num += 1
-        try:
-            if int(input("show vocab with key Enter and exit of program with key 0 : ")) == 0:
-                print("exit of program\ngood luck.")
-                time_enter_exit("exit")
-                break
-        except:
-            print(f"\n\t{num}_{k} =\t{v}\n")
-            if input("do you need to translate this vocab? y\\n : ") == "y":
-                print(f"{translator(k)} = {[translator(vocab)for vocab in v]}")
+        if num >= line:
+            try:
+                if int(input("show vocab with key Enter and exit of program with key 0 : ")) == 0:
+                    print("exit of program\ngood luck.")
+                    time_enter_exit("exit")
+                    break
+            except:
+                print(f"\n\t{num}_{k} =\t{v}\n")
+                if input("do you need to translate this vocab? y\\n : ") == "y":
+                    print(f"{translator(k)} = {[translator(vocab)for vocab in v]}")
 
 else:
     print("Error enter....")
