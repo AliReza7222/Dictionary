@@ -2,9 +2,14 @@
 # run_vocabs
 from datetime import datetime
 from Config import Config
-from file_translator import translator
-
+from file_translator import Translate
+import translators
 vocabs = Config()
+
+
+def translator(text):
+    translate = translators.google(text, from_language="en", to_language="fa")
+    return translate
 
 
 def time_enter_exit(key, number=None):
@@ -17,9 +22,9 @@ def time_enter_exit(key, number=None):
         file.write(line)
 
 
-enter = input("\nvocab's old or forget: (forget/old) ? ")
-line_check = int(input("which line : "))
+enter = input("\nvocab\'s old or forget: (forget/old) ? ")
 if enter.strip() == "old":
+    line_check = int(input("which line : "))
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
     list_vocab = vocabs.old_vocabs()
@@ -40,6 +45,7 @@ if enter.strip() == "old":
                     print(f"\n\t{translator(v)}\n")
 
 elif enter.strip() == "forget":
+    line_check = int(input("which line : "))
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
     list_vocab = vocabs.forget_vocab()
@@ -58,7 +64,7 @@ elif enter.strip() == "forget":
                 print(f"\n\t{num}_{k} =\t{list_vocab[k]}\n")
                 if input("do you need to translate this vocab? y\\N : ") == "y":
                     print("This translate be maybe not True ....")
-                    print(f"\n\t{translator(k)} = {[translator(vocab)for vocab in list_vocab[k]]}forget\n")
+                    print(f"\n\t{translator(k)} = {[translator(vocab)for vocab in list_vocab[k]]}\n")
 
 else:
     print("Error enter....")
