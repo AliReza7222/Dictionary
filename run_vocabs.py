@@ -19,10 +19,11 @@ def time_enter_exit(key, number=None):
 
 enter = input("\nvocab's old or forget: (forget/old) ? ")
 line_check = int(input("which line : "))
-if enter == "old":
+if enter.strip() == "old":
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
     list_vocab = vocabs.old_vocabs()
+    list_vocab.sort()
     num = 0
     for v in list_vocab:
         num += 1
@@ -34,15 +35,18 @@ if enter == "old":
                     break
             except:
                 print(f"\n\t{num}_{v}\n")
-                if input("do you need to translate this vocab? y\\n : ") == "y":
+                if input("do you need to translate this vocab? y\\N : ") == "y":
+                    print("This translate be maybe not True ....")
                     print(f"\n\t{translator(v)}\n")
 
-elif enter == "forget":
+elif enter.strip() == "forget":
     time_enter_exit("enter")
     print('#--------------- start first vocabs ------------------#')
     list_vocab = vocabs.forget_vocab()
+    key = list(list_vocab.keys())
+    key.sort()
     num = 0
-    for k, v in zip(list_vocab.keys(), list_vocab.values()):
+    for k in key:
         num += 1
         if num >= line_check:
             try:
@@ -51,9 +55,10 @@ elif enter == "forget":
                     time_enter_exit("exit", num)
                     break
             except:
-                print(f"\n\t{num}_{k} =\t{v}\n")
-                if input("do you need to translate this vocab? y\\n : ") == "y":
-                    print(f"{translator(k)} = {[translator(vocab)for vocab in v]}")
+                print(f"\n\t{num}_{k} =\t{list_vocab[k]}\n")
+                if input("do you need to translate this vocab? y\\N : ") == "y":
+                    print("This translate be maybe not True ....")
+                    print(f"\n\t{translator(k)} = {[translator(vocab)for vocab in list_vocab[k]]}forget\n")
 
 else:
     print("Error enter....")
