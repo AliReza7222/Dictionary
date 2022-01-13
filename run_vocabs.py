@@ -2,7 +2,6 @@
 # run_vocabs
 from datetime import datetime
 from Config import Config
-from file_translator import Translate
 import translators
 
 
@@ -32,7 +31,7 @@ class Vocabs(Config):
             line_check = int(input("which line : "))
             self.time_enter_exit("enter")
             print('#--------------- start first vocabs ------------------#')
-            list_vocab = Config().old_vocabs()
+            list_vocab = self.old_vocabs()
             list_vocab.sort()
             num = 0
             for v in list_vocab:
@@ -53,7 +52,7 @@ class Vocabs(Config):
             line_check = int(input("which line : "))
             self.time_enter_exit("enter")
             print('#--------------- start first vocabs ------------------#')
-            list_vocab = Config().forget_vocab()
+            list_vocab = self.forget_vocab()
             key = list(list_vocab.keys())
             key.sort()
             num = 0
