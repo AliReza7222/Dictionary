@@ -1,6 +1,7 @@
 # This file menu.py is for test because this project run on library ""tkinter""
 from run_vocabs import Vocabs
 from file_translator import Translate
+import json
 
 
 vocabs = Vocabs()
@@ -15,3 +16,6 @@ while 1:
     elif command == "exit":
         print("exit of program......")
         break
+
+    else:
+        print("\n**Error don't have this command **\n")

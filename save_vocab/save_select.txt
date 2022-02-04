@@ -1,0 +1,2 @@
+odds: ['is noun', 'probability']
+hazy: ['is adjective', 'confused', 'vague']

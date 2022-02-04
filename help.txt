@@ -4,4 +4,6 @@ menu Dictionary :
 *                                                          and show to you your select vocabs.}
 *           2_ -sr => search............................ this command you can search online for translate your text.
 *
-*           3_
+*           3_ exit ..................................... exit of program
+*
+*           4_
