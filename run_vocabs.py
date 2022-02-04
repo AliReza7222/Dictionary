@@ -1,11 +1,11 @@
 # b_kh
 # run_vocabs
 from datetime import datetime
-from Config import Config
 import translators
+from search_file import Search
 
 
-class Vocabs(Config):
+class Vocabs(Search):
 
     def __init__(self):
         super().__init__()
@@ -27,8 +27,11 @@ class Vocabs(Config):
 
     def vocabs_old_forget(self):
         enter = input("\nvocab\'s old or forget: (forget/old) ? ")
-        if enter.strip() == "old":
+        try:
             line_check = int(input("which line : "))
+        except:
+            line_check = 0
+        if enter.strip() == "old":
             self.time_enter_exit("enter")
             print('#--------------- start first vocabs ------------------#')
             list_vocab = self.old_vocabs()
@@ -47,9 +50,11 @@ class Vocabs(Config):
                         if input("do you need to translate this vocab? y\\N : ") == "y":
                             print("This translate be maybe not True ....")
                             print(f"\n\t{self.translator(v)}\n")
+                        if input("Do you want save this vocab ? (y/N): ") == "y":
+                            vocab = f'{v}\n'
+                            self.save(vocab)
 
         elif enter.strip() == "forget":
-            line_check = int(input("which line : "))
             self.time_enter_exit("enter")
             print('#--------------- start first vocabs ------------------#')
             list_vocab = self.forget_vocab()
@@ -69,6 +74,8 @@ class Vocabs(Config):
                         if input("do you need to translate this vocab? y\\N : ") == "y":
                             print("This translate be maybe not True ....")
                             print(f"\n\t{self.translator(k)} = {[self.translator(vocab)for vocab in list_vocab[k]]}\n")
-
+                        if input("Do you want save this vocab ? (y/N): ") == "y":
+                            vocab = f'{k} :\t{list_vocab[k]}\n'
+                            self.save(vocab)
         else:
             print("Error enter....")
