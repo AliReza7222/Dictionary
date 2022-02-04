@@ -2,7 +2,6 @@
 from run_vocabs import Vocabs
 from file_translator import Translate
 from search_file import *
-import json
 
 
 vocabs = Vocabs()
@@ -17,9 +16,10 @@ while 1:
         vocabs.vocabs_old_forget()
     elif command.strip() == "-srv":
         search.search()
+    elif command.strip() == "-sds":
+        search.show_file_save()
     elif command == "exit":
         print("exit of program......")
         break
-
     else:
         print("\n**Error don't have this command **\n")
