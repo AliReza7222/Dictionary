@@ -6,4 +6,6 @@ menu Dictionary :
 *
 *           3_ exit ..................................... exit of program
 *
-*           4_
+*           4_ -srv => ................................... {you can search between vocabs forget from file vocabs.json
+*                                                           and you can save if you want }
+*           5_
