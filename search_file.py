@@ -17,6 +17,8 @@ class Search(Config):
         self.directory()
         if select is not None:
             key = 0
+            if not (os.path.exists('save_vocab//save_select.txt')):
+                open('save_vocab//save_select.txt', 'w')
             with open("save_vocab//save_select.txt", "r") as text:
                 while True:
                     line = text.readline()

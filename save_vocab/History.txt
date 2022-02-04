@@ -1,7 +1,0 @@
-hazy: ['is adjective', 'confused', 'vague']
-hazy: ['is adjective', 'confused', 'vague']
-hazy: ['is adjective', 'confused', 'vague']
-hazy: ['is adjective', 'confused', 'vague']
-hazy: ['is adjective', 'confused', 'vague']
-hazy: ['is adjective', 'confused', 'vague']
-hazy: ['is adjective', 'confused', 'vague']
