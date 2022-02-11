@@ -1,11 +1,13 @@
 menu Dictionary :
-********************************************************************************************************
-*           1_ -sv => show_vocabs ...................... { you should select 1_old vocabs or 2_forget_vocabs
-*                                                          and show to you your select vocabs.}
-*           2_ -sr => search............................ this command you can search online for translate your text.
-*
-*           3_ exit ..................................... exit of program
-*
-*           4_ -srv => ................................... {you can search between vocabs forget from file vocabs.json
-*                                                           and you can save if you want }
-*           5_
+*************************************************************************************************************************
+*           1_ -sv => show_vocabs ...................... { you should select 1_old vocabs or 2_forget_vocabs            *
+*                                                          and show to you your select vocabs.}                         *
+*           2_ -sr => search............................ this command you can search online for translate your text.    *
+*                                                                                                                       *
+*           3_ exit ..................................... exit of program                                               *
+*                                                                                                                       *
+*           4_ -srv => ................................... {you can search between vocabs forget from file vocabs.json  *
+*                                                           and you can save if you want }                              *
+*           5_ -sds => ................................... show all lines file save vocabs and you can delete line      *
+*                                                                                                                       *
+*************************************************************************************************************************

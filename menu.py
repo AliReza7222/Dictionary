@@ -8,7 +8,14 @@ vocabs = Vocabs()
 translate = Translate()
 search = Search()
 
+
+def help_project():
+    with open("help.txt", "r") as help_file:
+        return help_file.read()
+
+
 while 1:
+    print("**If you need to guide of commands enter help**")
     command = input("Please enter your command : ")
     if command.strip() == "-sr":
         translate.start()
@@ -21,5 +28,7 @@ while 1:
     elif command == "exit":
         print("exit of program......")
         break
+    elif command.strip() == "help":
+        print(help_project())
     else:
         print("\n**Error don't have this command **\n")
