@@ -21,14 +21,19 @@ class Graphic(Search):
     canvas1.create_image(0, 0, image=bg, anchor="nw")
 
     def search_in_forget_list_vocab(self):
-        vocab_search = tk.Text(self.canvas1, width=30, height=1)
-        output = tk.Text(self.canvas1, width=50, height=5)
+        font = ("Bahnschrift Light", 10, "bold")
+        vocab_search = tk.Text(self.canvas1, width=30, height=1, bg="#F781F3", fg="#0B2161")
+        output = tk.Text(self.canvas1, width=50, height=5, bg="#F781F3", fg="#0B2161")
+        vocab_search.config(font=font)
+        output.config(font=font)
+        list_answer = ["None"]
 
         def show():
             vocab = vocab_search.get('1.0', 'end-1c')
-            answer = ''
             if vocab in self.forget_vocab():
+                answer = ''
                 answer += f"{vocab}: {self.forget_vocab()[vocab]}"
+                list_answer.append(answer)
                 output.insert(tk.END, answer)
             else:
                 output.insert(tk.END, 'not exist this vocab!')
@@ -38,12 +43,16 @@ class Graphic(Search):
             output.delete('1.0', 'end')
 
         w_label = tk.Label(self.canvas1, text="YOUR WELCOME\nThis Department is for search in list-forget-vocab",
-                           bg="#5C9EAF")
-        line_label = tk.Label(self.canvas1, text="-"*100, fg="#2A2DEC", bg="#BF4EF3")
-        search_label = tk.Label(self.canvas1, text="Enter-vocab:")
-        output_label = tk.Label(self.canvas1, text="Out-Put:")
-        button = tk.Button(self.canvas1, command=show, text="Search")
-        button_clear = tk.Button(self.canvas1, text="rest", command=clear_text)
+                           bg="#81DAF5")
+        line_label = tk.Label(self.canvas1, text="-"*100, fg="#A901DB", bg="#81DAF5")
+        search_label = tk.Label(self.canvas1, text="Enter-vocab:", bg="#81DAF5")
+        output_label = tk.Label(self.canvas1, text="Out-Put:", bg="#81DAF5")
+        button = tk.Button(self.canvas1, command=show, text="Search", bg="#8A0886", fg="#2E9AFE",
+                           activebackground="#81DAF5", activeforeground="#8A0886")
+        button_clear = tk.Button(self.canvas1, text="Rest", command=clear_text, bg="#8A0886", fg="#2E9AFE",
+                                 activebackground="#81DAF5", activeforeground="#8A0886")
+        button_save_vocab = tk.Button(self.canvas1, text="Save", command=lambda: self.save(list_answer[-1]+"\n"),
+                            bg="#8A0886", fg="#2E9AFE", activebackground="#81DAF5", activeforeground="#8A0886")
 
         w_label.pack()
         line_label.pack()
@@ -52,6 +61,7 @@ class Graphic(Search):
         output_label.pack()
         output.pack()
         button.pack()
+        button_save_vocab.pack()
         button_clear.pack()
 
         self.root.mainloop()

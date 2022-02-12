@@ -7,11 +7,13 @@ loguru==0.5.3
 lxml==4.7.1
 multiprocess==0.70.12.2
 pathos==0.2.8
+Pillow==9.0.1
 pox==0.3.0
 ppft==1.6.6.4
 PyExecJS==1.5.1
 requests==2.27.1
 six==1.16.0
+tk==0.1.0
 translators==4.11.4
 urllib3==1.26.7
 win32-setctime==1.0.4
