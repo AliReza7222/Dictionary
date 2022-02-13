@@ -1,9 +1,10 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from search_file import *
+from save_delete import *
+from Config import *
 
 
-class Graphic(Search):
+class Graphic(Config, Save):
 
     # create a window to name root
     root = tk.Tk()
@@ -33,6 +34,7 @@ class Graphic(Search):
             if vocab in self.forget_vocab():
                 answer = ''
                 answer += f"{vocab}: {self.forget_vocab()[vocab]}"
+                print(f"Search vocab [{vocab}]....")
                 list_answer.append(answer)
                 output.insert(tk.END, answer)
             else:
@@ -40,6 +42,7 @@ class Graphic(Search):
 
         def clear_text():
             vocab_search.delete('1.0', 'end')
+            print("Rest....")
             output.delete('1.0', 'end')
 
         w_label = tk.Label(self.canvas1, text="YOUR WELCOME\nThis Department is for search in list-forget-vocab",
@@ -66,6 +69,11 @@ class Graphic(Search):
 
         self.root.mainloop()
 
+    def vocabs_old_forget(self):
 
-g = Graphic()
-g.search_in_forget_list_vocab()
+        self.root.mainloop()
+
+
+# g = Graphic()
+# g.search_in_forget_list_vocab()
+# # g.vocabs_old_forget()

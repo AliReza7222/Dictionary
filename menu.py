@@ -1,12 +1,13 @@
 # This file menu.py is for test because this project run on library ""tkinter""
 from run_vocabs import Vocabs
 from file_translator import Translate
-from search_file import *
-
+from save_delete import *
+from GR_project import *
 
 vocabs = Vocabs()
 translate = Translate()
-search = Search()
+about_save = Save()
+gp = Graphic()
 
 
 def help_project():
@@ -14,7 +15,7 @@ def help_project():
         return help_file.read()
 
 
-while 1:
+while True:
     print("**If you need to guide of commands enter help**")
     command = input("Please enter your command : ")
     if command.strip() == "-sr":
@@ -22,9 +23,9 @@ while 1:
     elif command.strip() == "-sv":
         vocabs.vocabs_old_forget()
     elif command.strip() == "-srv":
-        search.search()
+        gp.search_in_forget_list_vocab()
     elif command.strip() == "-sds":
-        search.show_file_save()
+        about_save.show_file_save()
     elif command == "exit":
         print("exit of program......")
         break

@@ -2,10 +2,11 @@
 # run_vocabs
 from datetime import datetime
 import translators
-from search_file import Search
+from save_delete import *
+from Config import *
 
 
-class Vocabs(Search):
+class Vocabs(Save, Config):
 
     def __init__(self):
         super().__init__()
