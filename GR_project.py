@@ -73,11 +73,7 @@ class Graphic(Config, Save):
 
         root.mainloop()
 
-    # def vocabs_old_forget(self):
-    #
-    #     self.root.mainloop()
+    def vocabs_old_forget(self):
+        root =self.window(500, 500)
+        root.mainloop()
 
-
-# g = Graphic()
-# g.search_in_forget_list_vocab()
-# # g.vocabs_old_forget()
