@@ -4,7 +4,7 @@ from datetime import datetime
 import translators
 from save_delete import *
 from Config import *
-
+from run_sound import speech_vocabs
 
 class Vocabs(Save, Config):
 
@@ -54,6 +54,8 @@ class Vocabs(Save, Config):
                         if input("Do you want save this vocab ? (y/N): ") == "y":
                             vocab = f'{v}\n'
                             self.save(vocab)
+                        if input("do you want listen this vocab? y/N: ") == 'y':
+                            speech_vocabs(v)
 
         elif enter.strip() == "forget":
             self.time_enter_exit("enter")
@@ -78,5 +80,7 @@ class Vocabs(Save, Config):
                         if input("Do you want save this vocab ? (y/N): ") == "y":
                             vocab = f'{k} :\t{list_vocab[k]}\n'
                             self.save(vocab)
+                        if input("do you want listen this vocab? y/N: ") == 'y':
+                            speech_vocabs(k)
         else:
             print("Error enter....")

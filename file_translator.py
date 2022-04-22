@@ -1,5 +1,6 @@
 import translators
 from save_delete import *
+from run_sound import speech_vocabs
 
 
 class Translate(Save):
@@ -54,7 +55,8 @@ class Translate(Save):
         elif select == 9:
             mean = translators.google(text, from_language="fa", to_language="es")
             print(mean)
-        text = f"{text} : mean is {mean}\n"
-        if input("you want save this text y/N: ") == 'y':
-            self.save(text)
         print("this translate maybe not True .")
+        if input("you want save this text y/N: ") == 'y':
+            self.save(f"{text} : mean is {mean}\n")
+        if input("do you want listen this vocab? y/N: ") == 'y':
+            speech_vocabs(text)
